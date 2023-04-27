@@ -1085,8 +1085,8 @@
                     EAH’s Energy Division today is also derived from the group’s
                     continually expanding network of client companies, strategic
                     partners and global business leaders, especially focusing on
-                    the GCC, Israel, Russia and China, where inter-regional
-                    trade and investment opportunities are most promising.
+                    the GCC, where inter-regional trade and investment
+                    opportunities are most promising.
                   </p>
                 </div>
               </div>
@@ -1162,216 +1162,216 @@
 
     <script>
       $(document).ready(function () {
-        $("#webLogo").addClass("active");
-      });
+        $('#webLogo').addClass('active')
+      })
     </script>
 
     <script>
       $(document).ready(function () {
-        $("#showMap").on("click", function (e) {
-          e.preventDefault();
-          $("#map").addClass("active");
-        });
+        $('#showMap').on('click', function (e) {
+          e.preventDefault()
+          $('#map').addClass('active')
+        })
 
-        $("#closeMap").on("click", function (e) {
-          e.preventDefault();
-          $("#map").removeClass("active");
-        });
-      });
+        $('#closeMap').on('click', function (e) {
+          e.preventDefault()
+          $('#map').removeClass('active')
+        })
+      })
     </script>
 
     <script>
       $(document).ready(function () {
-        $(".carousel").carousel();
-      });
+        $('.carousel').carousel()
+      })
     </script>
 
     <script>
       $(document).ready(function () {
         // Add smooth scrolling to all links
-        const headerHeight = $("#webHeader").height();
+        const headerHeight = $('#webHeader').height()
 
-        $(".js-click-scroll-to").on("click", function (event) {
+        $('.js-click-scroll-to').on('click', function (event) {
           // Make sure this.hash has a value before overriding default behavior
-          if (this.hash !== "") {
+          if (this.hash !== '') {
             // Prevent default anchor click behavior
-            event.preventDefault();
+            event.preventDefault()
 
             // Store hash
-            var hash = this.hash;
+            var hash = this.hash
 
             // Using jQuery's animate() method to add smooth page scroll
             // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-            const scrollHeight = $(hash).offset().top - headerHeight;
-            $("html, body").animate(
+            const scrollHeight = $(hash).offset().top - headerHeight
+            $('html, body').animate(
               {
-                scrollTop: scrollHeight,
+                scrollTop: scrollHeight
               },
               800
-            );
+            )
           } // End if
-        });
-      });
+        })
+      })
     </script>
 
     <script>
       $(document).ready(function () {
-        doBrickBlock();
+        doBrickBlock()
 
-        const throttled = throttle(doBrickBlock, 500);
-        window.addEventListener("resize", throttled);
+        const throttled = throttle(doBrickBlock, 500)
+        window.addEventListener('resize', throttled)
 
         function doBrickBlock() {
-          formatBrickBlock();
-          addBrickBlockAction();
+          formatBrickBlock()
+          addBrickBlockAction()
         }
 
         function throttle(func, wait = 100) {
-          let timer = null;
+          let timer = null
           return function (...args) {
             if (timer === null) {
               timer = setTimeout(() => {
-                func.apply(this, args);
-                timer = null;
-              }, wait);
+                func.apply(this, args)
+                timer = null
+              }, wait)
             }
-          };
+          }
         }
 
         function formatBrickBlock() {
-          const windowWidth = $(window).width();
-          const $brickBlock = $(".brickBlock");
+          const windowWidth = $(window).width()
+          const $brickBlock = $('.brickBlock')
 
           $brickBlock.each(function (index, element) {
-            const thisElement = $(this);
-            const wrapperWidth = thisElement.width();
-            const allBlick = thisElement.find(".item-person");
-            const itemMargin = 15;
+            const thisElement = $(this)
+            const wrapperWidth = thisElement.width()
+            const allBlick = thisElement.find('.item-person')
+            const itemMargin = 15
 
-            let itemPerRow;
+            let itemPerRow
 
             if (windowWidth < 769) {
-              itemPerRow = 2;
+              itemPerRow = 2
             } else if (windowWidth < 1201) {
-              itemPerRow = 3;
+              itemPerRow = 3
             } else {
-              itemPerRow = 4;
+              itemPerRow = 4
             }
 
-            const itemWidthHeight = wrapperWidth / itemPerRow;
-            const rowAmount = Math.ceil(allBlick.length / itemPerRow);
+            const itemWidthHeight = wrapperWidth / itemPerRow
+            const rowAmount = Math.ceil(allBlick.length / itemPerRow)
 
-            thisElement.height(rowAmount * itemWidthHeight);
+            thisElement.height(rowAmount * itemWidthHeight)
 
             allBlick.each(function (index, element) {
-              const $item = $(this);
-              const itemOffset = $item.offset();
+              const $item = $(this)
+              const itemOffset = $item.offset()
 
               $item.css({
-                position: "absolute",
+                position: 'absolute',
                 top: itemWidthHeight * Math.floor(index / itemPerRow),
                 left: itemWidthHeight * (index % itemPerRow),
-                padding: "0 15px",
-                marginBottom: itemMargin + "px",
-                width: itemWidthHeight,
-              });
+                padding: '0 15px',
+                marginBottom: itemMargin + 'px',
+                width: itemWidthHeight
+              })
 
-              $item.find(".item-person__image").width(itemWidthHeight - 30);
-            });
-          });
+              $item.find('.item-person__image').width(itemWidthHeight - 30)
+            })
+          })
         }
 
         function addBrickBlockAction() {
-          const allBlick = $(".brickBlock").find(".item-person");
-          const windowWidth = $(window).width();
-          let mode;
+          const allBlick = $('.brickBlock').find('.item-person')
+          const windowWidth = $(window).width()
+          let mode
           if (windowWidth < 769) {
-            mode = "modalMode";
+            mode = 'modalMode'
           } else {
-            mode = "normalMode";
+            mode = 'normalMode'
           }
 
           allBlick.each(function (index, element) {
-            const $item = $(this);
+            const $item = $(this)
 
-            if (mode === "modalMode") {
+            if (mode === 'modalMode') {
               const itemDefaultStyle = {
-                position: "absolute",
-                top: "auto",
-                right: "15px",
-                left: "15px",
-              };
+                position: 'absolute',
+                top: 'auto',
+                right: '15px',
+                left: '15px'
+              }
 
-              $item.on("click", function () {
-                $item.addClass("active");
-                $item.find(".item-person__detail").css({
-                  position: "fixed",
+              $item.on('click', function () {
+                $item.addClass('active')
+                $item.find('.item-person__detail').css({
+                  position: 'fixed',
                   top: 0,
                   left: 0,
                   right: 0,
-                  zIndex: 9,
-                });
-              });
+                  zIndex: 9
+                })
+              })
 
-              $item.find(".item-person__read-more").on("click", function (e) {
-                if (!$item.hasClass("active")) {
-                  return;
+              $item.find('.item-person__read-more').on('click', function (e) {
+                if (!$item.hasClass('active')) {
+                  return
                 }
 
-                e.preventDefault();
-                e.stopPropagation();
-                $item.removeClass("active");
-                $item.find(".item-person__detail").css(itemDefaultStyle);
+                e.preventDefault()
+                e.stopPropagation()
+                $item.removeClass('active')
+                $item.find('.item-person__detail').css(itemDefaultStyle)
 
                 setTimeout(function () {
-                  $item.css({ zIndex: "auto" });
-                }, 200);
-              });
+                  $item.css({ zIndex: 'auto' })
+                }, 200)
+              })
             } else {
               const itemDefaultStyle = {
-                left: $item.css("left"),
-                width: $item.css("width"),
-              };
+                left: $item.css('left'),
+                width: $item.css('width')
+              }
 
-              $item.on("click", function () {
-                $item.addClass("active");
+              $item.on('click', function () {
+                $item.addClass('active')
                 $item.css({
                   left: 0,
-                  width: "100%",
-                  zIndex: "9",
-                });
-                $item.find(".item-person__detail").css({
-                  left: $item.find(".item-person__image").width(),
-                });
-              });
+                  width: '100%',
+                  zIndex: '9'
+                })
+                $item.find('.item-person__detail').css({
+                  left: $item.find('.item-person__image').width()
+                })
+              })
 
-              $item.find(".item-person__read-more").on("click", function (e) {
-                if (!$item.hasClass("active")) {
-                  return;
+              $item.find('.item-person__read-more').on('click', function (e) {
+                if (!$item.hasClass('active')) {
+                  return
                 }
 
-                e.preventDefault();
-                e.stopPropagation();
-                $item.removeClass("active");
-                $item.css(itemDefaultStyle);
+                e.preventDefault()
+                e.stopPropagation()
+                $item.removeClass('active')
+                $item.css(itemDefaultStyle)
 
-                $item.find(".item-person__detail").css({
-                  left: "15px",
-                });
+                $item.find('.item-person__detail').css({
+                  left: '15px'
+                })
 
                 setTimeout(function () {
-                  $item.css({ zIndex: "auto" });
-                }, 200);
-              });
+                  $item.css({ zIndex: 'auto' })
+                }, 200)
+              })
             }
-          });
+          })
         }
-      });
+      })
     </script>
 
     <script>
       var isInViewport = function (elem) {
-        var bounding = elem.getBoundingClientRect();
+        var bounding = elem.getBoundingClientRect()
 
         return (
           (bounding.top >= 0 &&
@@ -1382,47 +1382,47 @@
               document.documentElement.clientHeight -
                 (document.documentElement.clientHeight / 100) * 20) &&
             bounding.bottom >= 0)
-        );
-      };
+        )
+      }
 
-      window.addEventListener("DOMContentLoaded", function () {
-        var animatContentList = document.querySelectorAll(".animatContent");
+      window.addEventListener('DOMContentLoaded', function () {
+        var animatContentList = document.querySelectorAll('.animatContent')
 
         window.addEventListener(
-          "load",
+          'load',
           function (event) {
             for (i = 0; i < animatContentList.length; i++) {
               if (isInViewport(animatContentList[i])) {
-                animatContentList[i].classList.add("visible");
+                animatContentList[i].classList.add('visible')
               } else {
-                animatContentList[i].classList.remove("visible");
+                animatContentList[i].classList.remove('visible')
               }
             }
           },
           false
-        );
+        )
 
         window.addEventListener(
-          "scroll",
+          'scroll',
           function (event) {
             for (i = 0; i < animatContentList.length; i++) {
               if (isInViewport(animatContentList[i])) {
-                animatContentList[i].classList.add("visible");
+                animatContentList[i].classList.add('visible')
               } else {
-                animatContentList[i].classList.remove("visible");
+                animatContentList[i].classList.remove('visible')
               }
             }
           },
           false
-        );
-      });
+        )
+      })
     </script>
 
     <script>
       // Change status bar when content is in view port
 
       var visibleInViewport = function (elem) {
-        var bounding = elem.getBoundingClientRect();
+        var bounding = elem.getBoundingClientRect()
         return (
           bounding.top <=
             (window.innerHeight / 2 ||
@@ -1431,75 +1431,75 @@
           bounding.bottom >=
             (window.innerHeight / 2 ||
               document.documentElement.clientHeight / 2)
-        );
-      };
+        )
+      }
 
-      window.addEventListener("DOMContentLoaded", function () {
+      window.addEventListener('DOMContentLoaded', function () {
         var statusCheckerContent = document.querySelectorAll(
-          ".statusCheckerContent"
-        );
-        const navStatus = document.getElementById("navStatus") || null;
+          '.statusCheckerContent'
+        )
+        const navStatus = document.getElementById('navStatus') || null
         const allStatusBar = navStatus
-          ? navStatus.getElementsByTagName("p")
-          : null;
-        let barStatus;
+          ? navStatus.getElementsByTagName('p')
+          : null
+        let barStatus
 
         window.addEventListener(
-          "load",
+          'load',
           function () {
-            changeStatus();
+            changeStatus()
           },
           false
-        );
+        )
 
         window.addEventListener(
-          "scroll",
+          'scroll',
           function () {
-            changeStatus();
+            changeStatus()
           },
           false
-        );
+        )
 
         function changeStatus() {
           for (i = 0; i < statusCheckerContent.length; i++) {
             if (visibleInViewport(statusCheckerContent[i])) {
-              let contentId = statusCheckerContent[i].getAttribute("id");
-              console.log(contentId, barStatus);
-              if (contentId === "home") {
-                barStatus = "home";
-                loopRemoveClass(allStatusBar, "active");
-              } else if (contentId === "group" && barStatus !== "group") {
-                barStatus = "group";
-                loopRemoveClass(allStatusBar, "active");
-                allStatusBar[0].classList.add("active");
+              let contentId = statusCheckerContent[i].getAttribute('id')
+              console.log(contentId, barStatus)
+              if (contentId === 'home') {
+                barStatus = 'home'
+                loopRemoveClass(allStatusBar, 'active')
+              } else if (contentId === 'group' && barStatus !== 'group') {
+                barStatus = 'group'
+                loopRemoveClass(allStatusBar, 'active')
+                allStatusBar[0].classList.add('active')
               } else if (
-                contentId === "management" &&
-                barStatus !== "management"
+                contentId === 'management' &&
+                barStatus !== 'management'
               ) {
-                barStatus = "management";
-                loopRemoveClass(allStatusBar, "active");
-                allStatusBar[1].classList.add("active");
-              } else if (contentId === "mission" && barStatus !== "mission") {
-                barStatus = "mission";
-                loopRemoveClass(allStatusBar, "active");
-                allStatusBar[2].classList.add("active");
-              } else if (contentId == "contact" && barStatus !== "contact") {
-                barStatus = "contact";
-                loopRemoveClass(allStatusBar, "active");
-                allStatusBar[3].classList.add("active");
+                barStatus = 'management'
+                loopRemoveClass(allStatusBar, 'active')
+                allStatusBar[1].classList.add('active')
+              } else if (contentId === 'mission' && barStatus !== 'mission') {
+                barStatus = 'mission'
+                loopRemoveClass(allStatusBar, 'active')
+                allStatusBar[2].classList.add('active')
+              } else if (contentId == 'contact' && barStatus !== 'contact') {
+                barStatus = 'contact'
+                loopRemoveClass(allStatusBar, 'active')
+                allStatusBar[3].classList.add('active')
               }
 
-              break;
+              break
             }
           }
         }
 
         function loopRemoveClass(element, className) {
           for (j = 0; j < element.length; j++) {
-            element[j].classList.remove(className);
+            element[j].classList.remove(className)
           }
         }
-      });
+      })
     </script>
   </body>
 </html>
