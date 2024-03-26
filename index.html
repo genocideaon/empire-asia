@@ -830,61 +830,6 @@
                     </div>
                   </article>
 
-                  <!--            Person 9-->
-                  <article class="item-person">
-                    <img
-                      class="item-person__image"
-                      src="images/person-9.jpg"
-                      alt=""
-                    />
-                    <div class="item-person__detail">
-                      <header class="item-person__header">
-                        <h1 class="custom-text-primary-invert font-header">
-                          Edward Grant
-                        </h1>
-                        <p class="custom-text-primary font-header">
-                          Senior Advisor
-                        </p>
-                      </header>
-
-                      <div class="item-person__text-detail">
-                        <div class="item-person__text-detail__wrapper">
-                          <p>
-                            Ed Grant is a director of Empire Asia Group Co.,
-                            Ltd., who provides marketing & business development
-                            expertise on diverse projects throughout Asia and
-                            the Middle East, with a primary concentration today
-                            in the industrial estate, nfrastructure, community
-                            development and environmental sectors.
-                          </p>
-                          <p>
-                            A resident of Asia for the past 30 years, Ed has
-                            preformed numerous assignments as a business
-                            consultant and project manager on diverse projects
-                            throughout the region. This has included the
-                            successful development of mixed-use projects in
-                            China, Indonesia and Myanmar over he past 5 years,
-                            and previously on numerous infrastructure and
-                            industrial projects within Thailand’s Eastern
-                            Seaboard, which remains the country’s mos important
-                            economic development zone, located 100 km Southeast
-                            of Bangkok.
-                          </p>
-                          <p>
-                            Ed served in the U.S. Navy as a Commissioned Officer
-                            in the Civil Engineer Corps, and he holds a Bachelor
-                            of Architecture Degree from Rhode Island School of
-                            Design, RI, USA.
-                          </p>
-                        </div>
-                      </div>
-
-                      <button class="item-person__read-more">
-                        <img src="images/read-more.png" alt="" />
-                      </button>
-                    </div>
-                  </article>
-
                   <!--            Person 10-->
                   <article class="item-person">
                     <img
@@ -1205,7 +1150,7 @@
             const scrollHeight = $(hash).offset().top - headerHeight
             $('html, body').animate(
               {
-                scrollTop: scrollHeight
+                scrollTop: scrollHeight,
               },
               800
             )
@@ -1273,7 +1218,7 @@
                 left: itemWidthHeight * (index % itemPerRow),
                 padding: '0 15px',
                 marginBottom: itemMargin + 'px',
-                width: itemWidthHeight
+                width: itemWidthHeight,
               })
 
               $item.find('.item-person__image').width(itemWidthHeight - 30)
@@ -1299,7 +1244,7 @@
                 position: 'absolute',
                 top: 'auto',
                 right: '15px',
-                left: '15px'
+                left: '15px',
               }
 
               $item.on('click', function () {
@@ -1309,7 +1254,7 @@
                   top: 0,
                   left: 0,
                   right: 0,
-                  zIndex: 9
+                  zIndex: 9,
                 })
               })
 
@@ -1330,7 +1275,7 @@
             } else {
               const itemDefaultStyle = {
                 left: $item.css('left'),
-                width: $item.css('width')
+                width: $item.css('width'),
               }
 
               $item.on('click', function () {
@@ -1338,10 +1283,10 @@
                 $item.css({
                   left: 0,
                   width: '100%',
-                  zIndex: '9'
+                  zIndex: '9',
                 })
                 $item.find('.item-person__detail').css({
-                  left: $item.find('.item-person__image').width()
+                  left: $item.find('.item-person__image').width(),
                 })
               })
 
@@ -1356,7 +1301,7 @@
                 $item.css(itemDefaultStyle)
 
                 $item.find('.item-person__detail').css({
-                  left: '15px'
+                  left: '15px',
                 })
 
                 setTimeout(function () {
